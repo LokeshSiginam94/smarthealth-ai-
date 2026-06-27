@@ -1,45 +1,45 @@
-# 🩺 SmartHealth AI
+# SmartHealth AI
 
-SmartHealth AI is a MERN Stack health monitoring application that helps users track their health profile, BMI, hydration, sleep goals, and daily wellness. It also provides an Admin Dashboard for monitoring all registered users and their health data.
+An AI-Powered Digital Health Assistant built using the MERN Stack and Google Gemini AI.
 
----
+SmartHealth AI is a full-stack healthcare web application that enables users to monitor their daily health, manage personal wellness, track BMI, hydration, sleep, nutrition, and interact with an AI-powered health chatbot. The application also includes a secure admin dashboard for monitoring users and health data.
 
-# 🚀 Features
+## 🚀 Features
 
-## 👤 User
+### 👤 User Module
+- 🔐 Secure User Registration & Login (JWT Authentication)
+- 👤 Personal Health Profile Management
+- 📊 Health Dashboard
+- 🤖 AI Health Chatbot (Google Gemini AI)
+- 🩺 Symptom Checker
+- ⚖️ BMI Calculator
+- 💧 Daily Water Intake Tracker
+- 😴 Sleep Tracker
+- 🥗 Nutrition Monitoring
+- 📈 Personalized Health Insights
+- 📱 Fully Responsive UI
 
-- User Registration & Login (JWT Authentication)
-- Edit Personal Health Profile
-- BMI Calculator
-- Daily Water Tracker
-- Sleep Tracker
-- Notifications
-- Health Dashboard
-- AI Chatbot (Ready for Gemini Integration)
+### 👨‍💼 Admin Module
+- 🔐 Secure Admin Authentication
+- 📊 Admin Dashboard
+- 👥 View All Registered Users
+- 📋 Monitor User Health Profiles
+- 📈 View BMI & Health Statistics
+- 🗑️ Manage User Accounts
+- 📊 Overall System Monitoring
 
-## 👨‍💼 Admin
-
-- Secure Admin Login
-- View All Registered Users
-- Monitor User Health Profiles
-- View BMI & Health Status
-- Delete Users
-- Dashboard Statistics
-
----
-
-# 🛠 Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
-
 - React.js
-- React Router
+- Vite
+- React Router DOM
 - Tailwind CSS
-- Lucide React Icons
+- Lucide React
+- Axios
 - Context API
 
 ### Backend
-
 - Node.js
 - Express.js
 - MongoDB Atlas
@@ -47,186 +47,108 @@ SmartHealth AI is a MERN Stack health monitoring application that helps users tr
 - JWT Authentication
 - bcrypt.js
 
----
+### AI Integration
+- Google Gemini AI API
 
-# 📂 Project Structure
+## 📂 Project Structure
 
-```
+```text
 smarthealth-ai/
-
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
 ├── backend/
 │   ├── src/
-│   │
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   └── server.js
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   └── server.js
+│   ├── package.json
+│   └── .env
 │
-└── README.md
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   └── package.json
+│
+├── README.md
+├── package-lock.json
+└── .gitignore
 ```
 
----
+## ⚙️ Installation Guide
 
-# ⚙ Installation
-
-## 1️⃣ Clone Repository
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/smarthealth-ai.git
-
-cd smarthealth-ai
+git clone https://github.com/LokeshSiginam94/smarthealth-ai-.git
+cd smarthealth-ai-main
 ```
 
----
+### 📦 Backend Setup
 
-# Backend Setup
-
-Go to backend folder
+Navigate to the backend directory:
 
 ```bash
 cd backend
 ```
 
-Install dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
 
----
-
-## Create .env
-
-Create a file named
-
-```
-.env
-```
-
-Inside backend folder.
-
-Example:
+Create a `.env` file inside the backend folder:
 
 ```env
 PORT=5000
-
-MONGO_URI=your_mongodb_connection_string
-
+MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
-
 GEMINI_API_KEY=your_gemini_api_key
 ```
 
----
-
-## Run Backend
+Start the backend server:
 
 ```bash
 npm run dev
 ```
 
-Server runs at
+Backend Server:
 
-```
+```text
 http://localhost:5000
 ```
 
-Console
+Expected Output:
 
-```
+```text
 ✅ MongoDB Connected
-
 🚀 Server running on port 5000
 ```
 
----
+### 💻 Frontend Setup
 
-# Frontend Setup
-
-Open another terminal
+Open another terminal:
 
 ```bash
 cd frontend
-```
-
-Install packages
-
-```bash
 npm install
-```
-
-Run React
-
-```bash
 npm run dev
 ```
 
-Frontend
+Frontend URL:
 
-```
+```text
 http://localhost:5173
 ```
 
----
+## 🔐 Authentication
 
-# Backend Connection
+The application uses JWT Authentication for secure login.
 
-Frontend communicates with backend using
-
-```
-frontend/src/services/api.js
-```
-
-API Base URL
-
-```javascript
-const API_BASE_URL = "http://localhost:5000/api";
-```
-
-All API requests are sent through this URL.
-
-Example
-
-```javascript
-GET
-
-/api/profile
-```
-
-```javascript
-PUT
-
-/api/profile
-```
-
-```javascript
-POST
-
-/api/auth/login
-```
-
-```javascript
-POST
-
-/api/auth/register
-```
-
----
-
-# Authentication
-
-After Login
-
-Backend returns
+After successful login, the backend returns:
 
 ```json
 {
@@ -240,141 +162,95 @@ Backend returns
 }
 ```
 
-Frontend stores
+The frontend securely stores:
+- JWT Token
+- User Information
 
-```
-localStorage
+Protected API requests include:
 
-token
-
-user
-```
-
-Every protected API sends
-
-```javascript
-Authorization: Bearer TOKEN
+```http
+Authorization: Bearer <TOKEN>
 ```
 
----
+## 🗄️ Database Collections
 
-# MongoDB
+The project uses the following MongoDB collections:
+- `users`
+- `profiles`
+- `todaylogs`
 
-Collections
+### Database Relationship
 
-```
-users
-
-profiles
-
-todaylogs
-```
-
-Each Profile belongs to one User.
-
-```
+```text
 User
-
-↓
-
+   │
+   ▼
 Profile
-
-↓
-
+   │
+   ▼
 Today Log
 ```
 
----
+## 🤖 AI Health Assistant
 
-# Admin Dashboard
+SmartHealth AI integrates Google Gemini AI to provide:
+- Health-related guidance
+- Symptom analysis
+- Wellness suggestions
+- General health awareness
+- Interactive AI conversations
 
-Admin can
+## 🌐 REST API Endpoints
 
-- View all registered users
-- View health profiles
-- Monitor BMI
-- View health statistics
-- Delete users
+### Authentication
+- `POST /api/auth/register`
+- `POST /api/auth/login`
 
----
+### Profile
+- `GET /api/profile`
+- `PUT /api/profile`
 
-# Future Improvements
+### Today Log
+- `GET /api/today-log`
+- `PUT /api/today-log`
 
-- Gemini AI Health Assistant
-- Health Recommendation Engine
-- Doctor Appointment Module
-- Medicine Reminder
-- Food Recommendation
-- Health Report PDF
-- Charts & Analytics
+### Admin
+- `GET /api/admin/dashboard`
+- `DELETE /api/admin/user/:id`
 
----
+## 🚀 Future Enhancements
+- 🧠 AI Disease Prediction
+- 💊 Medicine Reminder
+- 📅 Doctor Appointment Booking
+- 📄 PDF Health Reports
+- 📊 Interactive Analytics Dashboard
+- ❤️ Heart Rate Monitoring
+- ⌚ Smart Wearable Integration
+- 🚑 Emergency Health Assistance
 
-# Available Scripts
+## 📸 Screenshots
 
-Backend
+You can add screenshots of the application here.
 
-```bash
-npm run dev
-```
+- Home Page
+- Dashboard
+- AI Chatbot
+- Health Profile
+- Admin Dashboard
 
-Frontend
+## 👨‍💻 Developer
 
-```bash
-npm run dev
-```
+**Lokesh Siginam**  
+B.Tech – Computer Science & Engineering (Artificial Intelligence & Machine Learning)
 
----
+📧 Email: [lokeshsiginam199@gmail.com](mailto:lokeshsiginam199@gmail.com)  
+🐙 GitHub: [https://github.com/LokeshSiginam94](https://github.com/LokeshSiginam94)
 
-# API Endpoints
+## ⭐ Support
 
-## Authentication
+If you found this project useful, please consider giving it a ⭐ on GitHub.
 
-```
-POST /api/auth/register
+## 📄 License
 
-POST /api/auth/login
-```
-
-## Profile
-
-```
-GET /api/profile
-
-PUT /api/profile
-```
-
-## Today Log
-
-```
-GET /api/today-log
-
-PUT /api/today-log
-```
-
-## Admin
-
-```
-GET /api/admin/dashboard
-
-DELETE /api/admin/user/:id
-```
-
----
-
-# Author
-
-**Manikanta Ch**
-
-MERN Stack Developer
-
-```
-GitHub:
-https://github.com/manikanta1326
-```
-
----
-
-# License
-
-This project is developed for learning and portfolio purposes.
+This project is developed for educational, portfolio, and learning purposes.  
+© 2026 Lokesh Siginam. All Rights Reserved.
